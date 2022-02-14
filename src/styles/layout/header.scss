@@ -1,0 +1,60 @@
+.header {
+  padding: 20px 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  a {
+    color: $primary;
+    font-size: 20px;
+
+    @include media('>=tablet') {
+      font-size: 28px;
+    }
+
+    span {
+      color: $secondary;
+    }
+  }
+}
+
+.join-now {
+  max-width: 126px;
+
+  @include media('>=tablet') {
+    max-width: none;
+  }
+
+  p {
+    font-size: 14px;
+    font-family: $font-family-secondary;
+    color: $secondary;
+
+    @include media('<=tablet') {
+      font-size: 12px;
+      text-align: right;
+    }
+
+    a {
+      @include transition (border);
+      color: $primary;
+      padding: 2px;
+      border: 1px solid transparent;
+      font-family: $font-family-primary;
+
+      @include media('<=tablet') {
+        font-size: 12px;
+        text-align: right;
+      }
+
+      &:hover {
+        border-bottom: 1px solid $primary;
+      }
+    }
+  }
+}

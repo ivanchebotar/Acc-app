@@ -1,0 +1,110 @@
+.input-holder {
+  margin: 0 0 30px;
+}
+
+input {
+  @include transition(border);
+  background-color: transparent;
+  border-bottom: 1px solid $primary;
+  outline: none;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  padding: 10px 20px;
+  margin: 0 0 4px;
+  width: 100%;
+  font-size: 16px;
+  color: $primary;
+  font-family: $font-family-secondary;
+  letter-spacing: 0.2px;
+  user-select: none;
+
+  &::placeholder {
+    color: $primary;
+    font-size: 16px;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+
+  &:focus {
+    border-bottom: 1px solid $secondary;
+  }
+}
+
+input[type='password'] {
+  padding: 10px 60px 10px 20px;
+}
+
+.input-holder {
+  position: relative;
+
+  .icon-eye {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 16px;
+    color: $primary;
+    opacity: 0.6;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      &:before {
+        content: '\e9d1';
+      }
+    }
+  }
+}
+
+input[type='file'] {
+  display: none;
+  border: 0;
+}
+
+.avatar-upload {
+  margin: 0 20px;
+  display: inline-block;
+  cursor: pointer;
+  color: $secondary;
+  font-size: 14px;
+  user-select: none;
+
+  @include media('>=tablet') {
+    font-size: 16px;
+  }
+
+  &:before {
+    @include transition (color);
+    content: $icon-folder;
+    font-family: 'icomoon' !important;
+    font-size: 30px;
+    position: relative;
+    top: 6px;
+    left: 0;
+    margin: 0 10px 0 0;
+  }
+
+  &:hover {
+    &:before {
+      color: $primary;
+    }
+  }
+}
+
+.hint {
+  color: $red;
+  padding: 0 20px;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+
+  &.active {
+    display: block;
+  }
+}

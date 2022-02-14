@@ -1,0 +1,30 @@
+.btn {
+  outline: none;
+  cursor: pointer;
+  display: block;
+  border: 0;
+  padding: 17px 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  user-select: none;
+
+  &-submit {
+    @include transition (box-shadow);
+    background-color: $secondary;
+    color: $white;
+
+    // &:hover {
+    //   box-shadow: 0 0 20px 1px rgb(0 0 0 / 67%);
+    // }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

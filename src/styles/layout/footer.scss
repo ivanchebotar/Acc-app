@@ -1,0 +1,14 @@
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+
+  h6 {
+    text-align: center;
+    font-family: $font-family-secondary;
+    color: $primary;
+    font-size: 10px;
+  }
+}
