@@ -23,7 +23,7 @@ class SignUp extends HTMLElement {
 		super ()
 
 		const shadow = this.attachShadow({ mode: 'closed' })
-		shadow.appendChild(document.createElement('div'))
+		shadow.appendChild(document.createElement('main'))
 		  .innerHTML = this.template
     getElems(shadow)
 

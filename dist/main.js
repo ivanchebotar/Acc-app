@@ -206,9 +206,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ "./styles/index.scss");
 /* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_index_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _js_components_signUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/components/signUp */ "./js/components/signUp.js");
+/* harmony import */ var _js_components_signIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/components/signIn */ "./js/components/signIn.js");
 
 
-document.getElementById('form').appendChild(_js_components_signUp__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+document.getElementById('form').appendChild(_js_components_signIn__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var signUpBtn = document.querySelector('.sign-up-btn');
+var signInBtn = document.querySelector('.sign-in-btn');
+var signInHold = document.querySelector('.sign-in-form');
+var signUpHold = document.querySelector('.sign-up-form');
+signUpBtn.addEventListener('click', function () {
+  signUpHold.classList.remove('active');
+  signInHold.classList.add('active');
+  document.getElementById('form').innerHTML = '';
+  document.getElementById('form').appendChild(_js_components_signUp__WEBPACK_IMPORTED_MODULE_1__["default"]);
+});
+signInBtn.addEventListener('click', function () {
+  signUpHold.classList.add('active');
+  signInHold.classList.remove('active');
+  document.getElementById('form').innerHTML = '';
+  document.getElementById('form').appendChild(_js_components_signIn__WEBPACK_IMPORTED_MODULE_2__["default"]);
+});
 
 /***/ }),
 
@@ -236,7 +254,7 @@ var avatarCallback = function avatarCallback(event) {
 /*!*******************************!*\
   !*** ./js/callbacks/index.js ***!
   \*******************************/
-/*! exports provided: loginCallback, passwordCallback, submitCallback */
+/*! exports provided: loginCallback, passwordCallback, submitCallback, userNameCallBack */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -249,6 +267,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _submitCallback__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./submitCallback */ "./js/callbacks/submitCallback.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "submitCallback", function() { return _submitCallback__WEBPACK_IMPORTED_MODULE_2__["submitCallback"]; });
+
+/* harmony import */ var _userNameCallBack__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./userNameCallBack */ "./js/callbacks/userNameCallBack.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "userNameCallBack", function() { return _userNameCallBack__WEBPACK_IMPORTED_MODULE_3__["userNameCallBack"]; });
+
 
 
 
@@ -286,11 +308,11 @@ var loginCallback = /*#__PURE__*/function () {
           case 2:
             response = _context.sent;
             _helpers_index__WEBPACK_IMPORTED_MODULE_0__["login"].style.borderColor = response ? '#090' : '#f00';
-            this.login = response ? _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.remove('active') : _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.add('active');
-            _helpers_index__WEBPACK_IMPORTED_MODULE_0__["button"].disabled = !response;
+            this.login = response ? _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.remove('active') : _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.add('active'); // button.disabled = !response
+
             _helpers_index__WEBPACK_IMPORTED_MODULE_0__["password"].disabled = !response;
 
-          case 7:
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -323,7 +345,7 @@ var passwordCallback = function passwordCallback(event) {
   var response = Boolean(event.target.value.match(_configs_index__WEBPACK_IMPORTED_MODULE_0__["passwordRule"]));
   _helpers_index__WEBPACK_IMPORTED_MODULE_1__["password"].style.borderColor = response ? '#090' : '#f00';
   this.password = response ? _helpers_index__WEBPACK_IMPORTED_MODULE_1__["hintErrorPass"].classList.remove('active') : _helpers_index__WEBPACK_IMPORTED_MODULE_1__["hintErrorPass"].classList.add('active');
-  button.disabled = response;
+  _helpers_index__WEBPACK_IMPORTED_MODULE_1__["button"].disabled = !response;
 };
 
 /***/ }),
@@ -361,7 +383,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-console.log(fast_sha256__WEBPACK_IMPORTED_MODULE_2___default.a);
 var hasher = new fast_sha256__WEBPACK_IMPORTED_MODULE_2___default.a.Hash();
 var submitCallback = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -422,6 +443,148 @@ var submitCallback = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+/***/ }),
+
+/***/ "./js/callbacks/userNameCallBack.js":
+/*!******************************************!*\
+  !*** ./js/callbacks/userNameCallBack.js ***!
+  \******************************************/
+/*! exports provided: userNameCallBack */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userNameCallBack", function() { return userNameCallBack; });
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./js/helpers/index.js");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+ // console.log(hintErrorLogIn)
+
+function userNameCallBack(_x) {
+  return _userNameCallBack.apply(this, arguments);
+}
+
+function _userNameCallBack() {
+  _userNameCallBack = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+    var response, password, avatar;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return Object(_helpers__WEBPACK_IMPORTED_MODULE_0__["getUserDetails"])(event.target.value);
+
+          case 2:
+            response = _context.sent;
+
+            if (response) {
+              password = response.password, avatar = response.avatar;
+              localStorage.setItem('password', password);
+              localStorage.setItem('avatar', avatar);
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["userPass"].disabled = false;
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["userName"].style.borderColor = '#090';
+            } else {
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["userBtn"].disabled = true;
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["userName"].style.borderColor = '#f00';
+            }
+
+            if (this.userName = response) {
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["hintErrorLogIn"].classList.remove('active');
+            } else {
+              _helpers__WEBPACK_IMPORTED_MODULE_0__["hintErrorLogIn"].classList.add('active');
+            }
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _userNameCallBack.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./js/components/signIn.js":
+/*!*********************************!*\
+  !*** ./js/components/signIn.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _snippets__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../snippets */ "./js/snippets/index.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers */ "./js/helpers/index.js");
+/* harmony import */ var _callbacks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../callbacks */ "./js/callbacks/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var SignIn = /*#__PURE__*/function (_HTMLElement) {
+  _inherits(SignIn, _HTMLElement);
+
+  var _super = _createSuper(SignIn);
+
+  function SignIn() {
+    var _this;
+
+    _classCallCheck(this, SignIn);
+
+    _this = _super.call(this);
+
+    var shadow = _this.attachShadow({
+      mode: 'closed'
+    });
+
+    _this.container = shadow.appendChild(document.createElement('main'));
+    _this.container.innerHTML = _snippets__WEBPACK_IMPORTED_MODULE_0__["signInTemplate"];
+    Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["getElemsIn"])(shadow);
+    _helpers__WEBPACK_IMPORTED_MODULE_1__["userName"].onchange = _callbacks__WEBPACK_IMPORTED_MODULE_2__["userNameCallBack"];
+    _helpers__WEBPACK_IMPORTED_MODULE_1__["showPasswordIn"].addEventListener('click', function () {
+      _helpers__WEBPACK_IMPORTED_MODULE_1__["showPasswordIn"].classList.contains('active') ? (this.classList.remove('active'), _helpers__WEBPACK_IMPORTED_MODULE_1__["userPass"].type = 'password') : (this.classList.add('active'), _helpers__WEBPACK_IMPORTED_MODULE_1__["userPass"].type = 'text');
+    });
+    return _this;
+  }
+
+  return _createClass(SignIn);
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define('sign-in', SignIn);
+/* harmony default export */ __webpack_exports__["default"] = (document.createElement('sign-in'));
 
 /***/ }),
 
@@ -487,7 +650,7 @@ var SignUp = /*#__PURE__*/function (_HTMLElement) {
       mode: 'closed'
     });
 
-    shadow.appendChild(document.createElement('div')).innerHTML = _this.template;
+    shadow.appendChild(document.createElement('main')).innerHTML = _this.template;
     Object(_helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["getElems"])(shadow);
     console.log(_helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["login"], _helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["password"], _helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["avatar"], _helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["button"], _helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["picture"]);
     _helpers_inputs__WEBPACK_IMPORTED_MODULE_3__["avatar"].onchange = _callbacks_avatarCallback__WEBPACK_IMPORTED_MODULE_1__["avatarCallback"];
@@ -562,7 +725,7 @@ var passwordRule = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 /*!*****************************!*\
   !*** ./js/helpers/index.js ***!
   \*****************************/
-/*! exports provided: login, password, avatar, button, picture, pictureHint, pictureHintErr, hintErrorLog, hintErrorPass, showPassword, validateLogin */
+/*! exports provided: login, password, avatar, button, picture, pictureHint, pictureHintErr, hintErrorLog, hintErrorLogIn, hintErrorPass, showPassword, showPasswordIn, userName, userPass, userBtn, getElems, getElemsIn, getUserDetails, validateLogin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -588,8 +751,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showPassword", function() { return _inputs__WEBPACK_IMPORTED_MODULE_0__["showPassword"]; });
 
-/* harmony import */ var _validateLogin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./validateLogin */ "./js/helpers/validateLogin.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateLogin", function() { return _validateLogin__WEBPACK_IMPORTED_MODULE_1__["validateLogin"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getElems", function() { return _inputs__WEBPACK_IMPORTED_MODULE_0__["getElems"]; });
+
+/* harmony import */ var _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inputsSignIn */ "./js/helpers/inputsSignIn.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hintErrorLogIn", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["hintErrorLogIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showPasswordIn", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["showPasswordIn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "userName", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["userName"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "userPass", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["userPass"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "userBtn", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["userBtn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getElemsIn", function() { return _inputsSignIn__WEBPACK_IMPORTED_MODULE_1__["getElemsIn"]; });
+
+/* harmony import */ var _usersCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./usersCheck */ "./js/helpers/usersCheck.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getUserDetails", function() { return _usersCheck__WEBPACK_IMPORTED_MODULE_2__["getUserDetails"]; });
+
+/* harmony import */ var _validateLogin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./validateLogin */ "./js/helpers/validateLogin.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateLogin", function() { return _validateLogin__WEBPACK_IMPORTED_MODULE_3__["validateLogin"]; });
+
+
 
 
 
@@ -652,6 +835,53 @@ function getElems(shadow) {
 
 /***/ }),
 
+/***/ "./js/helpers/inputsSignIn.js":
+/*!************************************!*\
+  !*** ./js/helpers/inputsSignIn.js ***!
+  \************************************/
+/*! exports provided: getElemsIn, userName, userPass, userBtn, hintErrorLogIn, hintErrorPass, showPasswordIn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElemsIn", function() { return getElemsIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userName", function() { return userName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userPass", function() { return userPass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userBtn", function() { return userBtn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hintErrorLogIn", function() { return hintErrorLogIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hintErrorPass", function() { return hintErrorPass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showPasswordIn", function() { return showPasswordIn; });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var userName, userPass, userBtn, hintErrorLogIn, hintErrorPass, showPasswordIn;
+function getElemsIn(shadow) {
+  var _map = ['login', 'password', 'button', 'hintErrorLogIn', 'hintErrorPass', 'showPasswordIn'].map(function (id) {
+    return shadow.querySelector("#".concat(id));
+  });
+
+  var _map2 = _slicedToArray(_map, 6);
+
+  userName = _map2[0];
+  userPass = _map2[1];
+  userBtn = _map2[2];
+  hintErrorLogIn = _map2[3];
+  hintErrorPass = _map2[4];
+  showPasswordIn = _map2[5];
+}
+
+
+/***/ }),
+
 /***/ "./js/helpers/readFile.js":
 /*!********************************!*\
   !*** ./js/helpers/readFile.js ***!
@@ -685,6 +915,62 @@ function readFile(file, elem) {
 
   reader.readAsDataURL(file);
 }
+
+/***/ }),
+
+/***/ "./js/helpers/usersCheck.js":
+/*!**********************************!*\
+  !*** ./js/helpers/usersCheck.js ***!
+  \**********************************/
+/*! exports provided: getUserDetails */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserDetails", function() { return getUserDetails; });
+/* harmony import */ var _configs_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../configs/index */ "./js/configs/index.js");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var getUserDetails = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(login) {
+    var _yield$yield$fetch$js, error, password, avatar;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch("".concat(_configs_index__WEBPACK_IMPORTED_MODULE_0__["origin"], "/user/").concat(login));
+
+          case 2:
+            _context.next = 4;
+            return _context.sent.json();
+
+          case 4:
+            _yield$yield$fetch$js = _context.sent;
+            error = _yield$yield$fetch$js.error;
+            password = _yield$yield$fetch$js.password;
+            avatar = _yield$yield$fetch$js.avatar;
+            return _context.abrupt("return", error ? null : {
+              password: password,
+              avatar: avatar
+            });
+
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function getUserDetails(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 /***/ }),
 
@@ -736,6 +1022,45 @@ var validateLogin = /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }();
+
+/***/ }),
+
+/***/ "./js/snippets/index.js":
+/*!******************************!*\
+  !*** ./js/snippets/index.js ***!
+  \******************************/
+/*! exports provided: signInTemplate, signUpTemplate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _signInTemplate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./signInTemplate */ "./js/snippets/signInTemplate.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "signInTemplate", function() { return _signInTemplate__WEBPACK_IMPORTED_MODULE_0__["signInTemplate"]; });
+
+/* harmony import */ var _signUpTemplate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./signUpTemplate */ "./js/snippets/signUpTemplate.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "signUpTemplate", function() { return _signUpTemplate__WEBPACK_IMPORTED_MODULE_1__["signUpTemplate"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./js/snippets/signInTemplate.js":
+/*!***************************************!*\
+  !*** ./js/snippets/signInTemplate.js ***!
+  \***************************************/
+/*! exports provided: signInTemplate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signInTemplate", function() { return signInTemplate; });
+/* harmony import */ var _assets_images_icon_eye_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../assets/images/icon-eye.svg */ "./assets/images/icon-eye.svg");
+/* harmony import */ var _assets_images_icon_eye_blocked_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../assets/images/icon-eye-blocked.svg */ "./assets/images/icon-eye-blocked.svg");
+
+
+var signInTemplate = "\n  <h1 class=\"section-title\">Account Sign in</h1>\n  <div class=\"form-holder\">\n    <div class=\"form-holder-inputs\">\n      <div class=\"input-holder\">\n        <input type=\"email\" id=\"login\" placeholder=\"Enter your email\">\n        <span id=\"hintErrorLogIn\" class=\"hint\">invalid login or username</span>\n      </div>\n      <div class=\"input-holder\">\n        <input type=\"password\" id=\"password\" placeholder=\"Enter your password\">\n        <span fill=\"#666\" id=\"showPasswordIn\" class=\"icon-eye\"></span>\n        <span id=\"hintErrorPass\" class=\"hint\">invalid password</span>\n      </div>\n    </div>\n    <div class=\"form-holder-btn\">\n      <button class=\"btn btn-submit\" id=\"button\" disabled>Sign in</button>\n    </div>\n  </div>\n\n  <style>\n    *,\n    :after,\n    :before {\n      box-sizing: inherit;\n    }\n    main {\n      padding: 50px 0;\n    }\n    img {\n      max-width: 100%;\n      height: auto;\n      vertical-align: top;\n    }\n    .btn {\n      outline: 0;\n      cursor: pointer;\n      display: block;\n      border: 0;\n      padding: 17px 0 15px;\n      text-align: center;\n      text-transform: uppercase;\n      width: 100%;\n      user-select: none;\n    }\n    .btn-submit {\n      transition: box-shadow 0.3s ease;\n      background-color: #030303;\n      color: #fafafa;\n    }\n    .btn-submit:hover {\n      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.67);\n    }\n    .btn:disabled {\n      opacity: 0.6;\n      cursor: not-allowed;\n    }\n    .btn:disabled:hover {\n      box-shadow: none;\n    }\n    @font-face {\n      font-family: Nexa;\n      src: url(../fonts/Nexa.otf);\n    }\n    .input-holder {\n      margin: 0 0 30px;\n    }\n    input {\n      transition: border 0.3s ease;\n      background-color: transparent;\n      border-bottom: 1px solid #fafafa;\n      outline: 0;\n      border-top: 0;\n      border-right: 0;\n      border-left: 0;\n      border-radius: 0;\n      padding: 10px 50px 10px 20px;\n      width: 100%;\n      font-size: 16px;\n      color: #fafafa;\n      font-family: Roboto, sans-serif;\n      letter-spacing: 0.2px;\n      user-select: none;\n    }\n    input:disabled {\n      opacity: 0.5;\n    }\n    input::placeholder {\n      color: #fafafa;\n      font-size: 16px;\n    }\n    input:-webkit-autofill,\n    input:-webkit-autofill:focus {\n      transition: background-color 600000s 0s, color 600000s 0s;\n    }\n    input:focus {\n      border-bottom: 1px solid #030303;\n    }\n    input[type=\"password\"] {\n      padding: 10px 60px 10px 20px;\n    }\n    .input-holder {\n      position: relative;\n    }\n    .input-holder .icon-eye {\n      position: relative;\n      top: -2px;\n      right: 18px;\n      cursor: pointer;\n      user-select: none;\n    }\n    .input-holder .icon-eye:before {\n      content: '';\n      background: url(".concat(_assets_images_icon_eye_svg__WEBPACK_IMPORTED_MODULE_0__["default"], ");\n      width: 20px;\n      height: 20px;\n      opacity: 0.8;\n      position: absolute;\n      top: 0;\n      right: 0;\n    }\n    .input-holder .icon-eye.active:before {\n      background: url(").concat(_assets_images_icon_eye_blocked_svg__WEBPACK_IMPORTED_MODULE_1__["default"], ");\n    }\n    input[type=\"file\"] {\n      display: none;\n      border: 0;\n    }\n    .avatar-upload {\n      margin: 0 auto 50px;\n      width: 100px;\n      height: 100px;\n      display: block;\n      cursor: pointer;\n      color: #030303;\n      font-size: 14px;\n      user-select: none;\n      border: 1px solid #030303;\n      padding: 4px;\n      border-radius: 50%;\n      position: relative;\n      transition: all 0.3s ease;\n    }\n    .avatar-upload:hover {\n      color: #fafafa;\n      border: 1px solid #fafafa;\n    }\n    .avatar-upload img {\n      display: block;\n      width: 100%;\n      height: 100%;\n      border-radius: 100%;\n      object-fit: cover;\n    }\n    .hint {\n      color: #f00;\n      padding: 0 20px;\n      font-size: 12px;\n      display: none;\n      position: absolute;\n      left: 0;\n      bottom: -20px;\n    }\n    .hint.active {\n      display: block;\n    }\n    .picture-hint {\n      padding: 10px 0 0;\n      font-size: 12px;\n      display: block;\n      text-align: center;\n    }\n    .picture-hint.success {\n      visibility: hidden;\n      position: relative;\n    }\n    .picture-hint.success:after {\n      visibility: visible;\n      position: absolute;\n      top: 10px;\n      left: 0;\n      color: #32CD32;\n      font-size: 12px;\n      content: \"success\";\n      line-height: 1.3;\n      width: 100%;\n    }\n    .picture-hint.error {\n      visibility: hidden;\n      position: relative;\n    }\n    .picture-hint.error:after {\n      visibility: visible;\n      position: absolute;\n      top: 10px;\n      left: 0;\n      color: #f00;\n      font-size: 12px;\n      content: \"unsupported file\";\n      line-height: 1.3;\n      width: 100%;\n    }\n    @media (min-width: 768px) {\n      .avatar-upload {\n        font-size: 16px;\n      }\n    }\n    .avatar-upload:hover:before {\n      color: #fafafa;\n    }\n    a {\n      transition: color 0.3s ease;\n      color: #030303;\n      text-decoration: none;\n    }\n    .container {\n      width: 100%;\n      margin-left: auto;\n      margin-right: auto;\n      padding-left: 30px;\n      padding-right: 30px;\n      max-width: 1200px;\n    }\n    .page-holder {\n      padding-bottom: 20px;\n    }\n    .picture-holder {\n      width: 100px;\n      margin: 0 auto;\n    }\n    .picture-holder img {\n      border-radius: 50%;\n    }\n    .section-title {\n      text-align: center;\n      color: #fafafa;\n      margin: 0 0 50px;\n      padding: 0;\n    }\n    .form-section {\n      padding: 80px 0;\n    }\n    .form-holder {\n      max-width: 400px;\n      margin: 0 auto;\n    }\n    .form-holder-inputs {\n      margin: 0 0 50px;\n    }  \n  </style>\n");
 
 /***/ }),
 

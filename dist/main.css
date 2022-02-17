@@ -239,31 +239,23 @@ ul {
   .logo a span {
     color: #030303; }
 
-.join-now {
-  max-width: 126px; }
-  @media (min-width: 768px) {
-    .join-now {
-      max-width: none; } }
-  .join-now p {
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
-    color: #030303; }
-    @media (max-width: 768px) {
-      .join-now p {
-        font-size: 12px;
-        text-align: right; } }
-    .join-now p a {
-      transition: border 0.3s ease;
-      color: #fafafa;
-      padding: 2px;
-      border: 1px solid transparent;
-      font-family: "Nexa", sans-serif; }
-      @media (max-width: 768px) {
-        .join-now p a {
-          font-size: 12px;
-          text-align: right; } }
-      .join-now p a:hover {
-        border-bottom: 1px solid #fafafa; }
+.join-from .sign-up-form,
+.join-from .sign-in-form {
+  display: none;
+  font-size: 14px;
+  color: #030303;
+  user-select: none; }
+  .join-from .sign-up-form.active,
+  .join-from .sign-in-form.active {
+    display: block; }
+
+.join-from a {
+  transition: border-bottom 0.3s ease;
+  color: #fafafa;
+  border-bottom: 1px solid transparent;
+  cursor: pointer; }
+  .join-from a:hover {
+    border-bottom: 1px solid #fafafa; }
 
 @font-face {
   font-family: 'icomoon';

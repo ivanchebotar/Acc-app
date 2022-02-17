@@ -8,8 +8,6 @@ import {
 
 import sha256 from 'fast-sha256'
 
-console.log(sha256)
-
 const hasher = new sha256.Hash()
 
 export const submitCallback = async (event) => {

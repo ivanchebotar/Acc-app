@@ -23,38 +23,27 @@
   }
 }
 
-.join-now {
-  max-width: 126px;
+.join-from {
+  .sign-up-form,
+  .sign-in-form {
+    display: none;
+    font-size: 14px;
+    color: $secondary;
+    user-select: none;
 
-  @include media('>=tablet') {
-    max-width: none;
+    &.active {
+      display: block;
+    }
   }
 
-  p {
-    font-size: 14px;
-    font-family: $font-family-secondary;
-    color: $secondary;
+  a {
+    @include transition (border-bottom);
+    color: $primary;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
 
-    @include media('<=tablet') {
-      font-size: 12px;
-      text-align: right;
-    }
-
-    a {
-      @include transition (border);
-      color: $primary;
-      padding: 2px;
-      border: 1px solid transparent;
-      font-family: $font-family-primary;
-
-      @include media('<=tablet') {
-        font-size: 12px;
-        text-align: right;
-      }
-
-      &:hover {
-        border-bottom: 1px solid $primary;
-      }
+    &:hover {
+      border-bottom: 1px solid $primary;
     }
   }
 }
