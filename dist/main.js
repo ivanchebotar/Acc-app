@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var avatarCallback = function avatarCallback(event) {
-  Object(_helpers_readFile__WEBPACK_IMPORTED_MODULE_1__["readFile"])(event.target.files[0], _helpers_index__WEBPACK_IMPORTED_MODULE_0__["picture"]); // pictureHint.classList.add('hidden')
+  Object(_helpers_readFile__WEBPACK_IMPORTED_MODULE_1__["readFile"])(event.target.files[0], _helpers_index__WEBPACK_IMPORTED_MODULE_0__["picture"]);
 };
 
 /***/ }),
@@ -308,8 +308,7 @@ var loginCallback = /*#__PURE__*/function () {
           case 2:
             response = _context.sent;
             _helpers_index__WEBPACK_IMPORTED_MODULE_0__["login"].style.borderColor = response ? '#090' : '#f00';
-            this.login = response ? _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.remove('active') : _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.add('active'); // button.disabled = !response
-
+            this.login = response ? _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.remove('active') : _helpers_index__WEBPACK_IMPORTED_MODULE_0__["hintErrorLog"].classList.add('active');
             _helpers_index__WEBPACK_IMPORTED_MODULE_0__["password"].disabled = !response;
 
           case 6:
@@ -462,7 +461,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
- // console.log(hintErrorLogIn)
 
 function userNameCallBack(_x) {
   return _userNameCallBack.apply(this, arguments);

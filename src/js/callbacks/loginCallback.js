@@ -11,6 +11,5 @@ export const loginCallback = async function (event) {
   login.style.borderColor = response ? '#090' : '#f00'
   this.login = response ? hintErrorLog.classList.remove('active') : hintErrorLog.classList.add('active')
 
-  // button.disabled = !response
   password.disabled = !response
 }

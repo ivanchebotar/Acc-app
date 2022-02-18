@@ -9,8 +9,6 @@ import {
   hintErrorLogIn
 } from '../helpers/'
 
-// console.log(hintErrorLogIn)
-
 export async function userNameCallBack (event) {
   const response = await getUserDetails(event.target.value)
   if (response) {
